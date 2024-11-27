@@ -15,22 +15,29 @@ document.addEventListener("DOMContentLoaded", () => {
       tableBody.innerHTML += row;
     });
   }
-  function listarDoctoresAdmin() {
-    fetch("./src/data/doctors.json")
-      .then((response) => response.json())
-      .then((doctors) => {
-        fetch("./src/data/doctorsNew.json")
+
+// Simulación de llamada a una API REST para obtener datos de doctores
+  function fetchDoctors(url) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        fetch(url)
           .then((response) => response.json())
-          .then((newDoctors) => {
-            const allDoctors = [...doctors, ...newDoctors];
-            globalDoctors = allDoctors;
-            addDoctorsToTable(allDoctors);
-          })
-          .catch((error) =>
-            console.error("Error fetching new doctors:", error)
-          );
-      })
-      .catch((error) => console.error("Error fetching doctors:", error));
+          .then((doctors) => resolve(doctors))
+          .catch((error) => reject(error));
+      }, 1000);
+    });
+  }
+
+  async function listarDoctoresAdmin() {
+    try {
+      const doctors = await fetchDoctors("./src/data/doctors.json");
+      const newDoctors = await fetchDoctors("./src/data/doctorsNew.json");
+      const allDoctors = [...doctors, ...newDoctors];
+      globalDoctors = allDoctors;
+      addDoctorsToTable(allDoctors);
+    } catch (error) {
+      console.error("Error fetching doctors:", error);
+    }
   }
 
   // Llamar a la función para listar los doctores en la tabla de admin.html
