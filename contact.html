@@ -57,28 +57,28 @@
   <section id="section__contact">
     <div class="contact__form mt-5">
       <h1 class="section__title--dark text-center">Contáctanos</h1>
-      <form action="post">
+      <form id="contactForm">
         <div class="mb-3">
-          <label for="formControlInput" class="form-label">Tu Nombre</label>
-          <input type="text" class="form-control" id="formControlInput" placeholder="Escribe aquí tu nombre" tabindex="0">
+          <label for="formName" class="form-label">Tu Nombre</label>
+          <input type="text" class="form-control" id="formName" placeholder="Escribe aquí tu nombre" tabindex="0">
         </div>
         <div class="mb-3">
-          <label for="formControlInput" class="form-label">Tu Email</label>
-          <input type="email" class="form-control" id="formControlInput" placeholder="Escribe aquí tu email" tabindex="0">
+          <label for="formEmail" class="form-label">Tu Email</label>
+          <input type="email" class="form-control" id="formEmail" placeholder="Escribe aquí tu email" tabindex="0">
         </div>
         <div class="mb-3">
-          <label for="formControlInput" class="form-label">Asunto</label>
-          <input type="text" class="form-control" id="formControlInput" placeholder="Escribe aquí tu asunto" tabindex="0">
+          <label for="formSubject" class="form-label">Asunto</label>
+          <input type="text" class="form-control" id="formSubject" placeholder="Escribe aquí tu asunto" tabindex="0">
         </div>
         <div class="mb-3">
-          <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" tabindex="0"></textarea>
+          <label for="formMessage" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="formMessage" rows="3" tabindex="0"></textarea>
         </div>
         <button type="submit" class="btn btn-success">Enviar</button>
       </form>
+      <div id="alertConfirmation"></div>
     </div>
   </section>
-
   <section id="contact__map" class="w-100 mb-5">
     <div class="row container-fluid">
       <div class="col-md-6 col-sm-12 text-center footer__info">
@@ -135,6 +135,6 @@
     </div>
   </footer>
   <script src="./src/js/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="./src/js/app.js"></script>
+  <script src="./src/js/contact.js"></script>
 </body>
 </html>
